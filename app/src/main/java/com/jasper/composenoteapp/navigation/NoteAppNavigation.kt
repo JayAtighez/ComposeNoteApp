@@ -12,9 +12,13 @@ fun NoteAppNavigation(navController: NavHostController) {
 
     NavHost(navController, startDestination = "NotesListScreen") {
         composable(route = "NotesListScreen") {
-            NotesListScreen()
+            NotesListScreen(
+                navigateToNoteInputScreen = {
+                    navController.navigate("AddNoteScreen")
+                }
+            )
         }
-        composable(route = "NotesListScreen") {
+        composable(route = "AddNoteScreen") {
             AddNoteScreen(
                 navigateBackToNotesScreen = {
                     navController.navigateUp()
